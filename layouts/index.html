@@ -63,7 +63,7 @@
         图书作品
       </h2>
     </div>
-    {{ $books := .Site.Data.books | default slice }}
+    {{ $books := hugo.Data.books | default slice }}
     {{ if $books }}
     <div class="books-grid">
       {{ range $books }}
