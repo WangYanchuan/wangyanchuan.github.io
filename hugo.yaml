@@ -1,11 +1,11 @@
 baseURL: 'https://wangyanchuan.github.io/'
 locale: 'zh-CN'
 defaultContentLanguage: 'zh'
-title: '大模型笔记本'
+title: '笔记本'
 publishDir: 'public'
 
 params:
-  description: '关于 AI 大模型训练、深度学习和认知科学的个人博客'
+  description: '禅心'
   author: '杨闫川'
 
 markup:
