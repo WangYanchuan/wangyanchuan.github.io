@@ -7,24 +7,30 @@
   </div>
 </section>
 
-{{ $books := hugo.Data.books | default slice }}
-{{ if $books }}
+{{ $all := hugo.Data.books | default slice }}
+{{ $monographs := where $all "category" "个人专著" }}
+{{ $edited := where $all "category" "主编" }}
+{{ $translated := where $all "category" "翻译" }}
+
+{{ if $all }}
+<!-- 个人专著 -->
+{{ if $monographs }}
 <section style="padding-bottom:4rem">
   <div class="container">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem">
-      <h2 style="font-size:1.125rem;font-weight:500;color:var(--fg)">个人专著</h2>
-      <span style="font-size:0.875rem;color:var(--fg-muted)">{{ len $books }} 本</span>
+    <div class="section-header-bar">
+      <h2 class="section-hed">个人专著</h2>
+      <span class="section-count">{{ len $monographs }} 本</span>
     </div>
     <div>
-    {{ range $books }}
-      <article class="book-detail-article">
-        <a class="book-detail-link" href="{{ .link | default "#" }}">
-          <div class="book-detail-cover">
+    {{ range $monographs }}
+      <article class="book-row">
+        <a class="book-row-link" href="{{ .link | default "#" }}">
+          <div class="book-row-cover">
             <span>{{ .emoji | default "📖" }}</span>
           </div>
-          <div style="flex:1;min-width:0">
-            <h3 class="book-detail-title">{{ .title }}</h3>
-            <p class="book-detail-desc">{{ .description }}</p>
+          <div class="book-row-body">
+            <h3 class="book-row-title">{{ .title }}</h3>
+            <p class="book-row-desc">{{ .description }}</p>
           </div>
         </a>
       </article>
@@ -32,6 +38,45 @@
     </div>
   </div>
 </section>
+{{ end }}
+
+<!-- 其他作品 -->
+{{ if or $edited $translated }}
+<section style="padding-bottom:4rem;border-top:1px solid var(--border-30)">
+  <div class="container" style="padding-top:4rem">
+    <h2 style="font-size:1.125rem;font-weight:500;color:var(--fg);margin-bottom:2.5rem">其他作品</h2>
+    <div class="other-works-grid">
+      {{ if $edited }}
+      <div>
+        <h3 class="other-works-cat">主编 · {{ len $edited }} 本</h3>
+        <div class="other-works-thumbs">
+          {{ range $edited }}
+          <a class="other-work-item" href="{{ .link | default "#" }}">
+            <div class="other-work-cover">{{ .emoji | default "📖" }}</div>
+            <p class="other-work-title">{{ .title }}</p>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      {{ if $translated }}
+      <div>
+        <h3 class="other-works-cat">翻译、审校 · {{ len $translated }} 本</h3>
+        <div class="other-works-thumbs">
+          {{ range $translated }}
+          <a class="other-work-item" href="{{ .link | default "#" }}">
+            <div class="other-work-cover">{{ .emoji | default "📖" }}</div>
+            <p class="other-work-title">{{ .title }}</p>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{ else }}
 <section style="padding-bottom:4rem">
   <div class="container">

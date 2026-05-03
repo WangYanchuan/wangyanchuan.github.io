@@ -2,23 +2,28 @@
   description: "关于认知科学、心智模型与个人成长的思考。"
   link: "#"
   emoji: "🌱"
+  category: "个人专著"
 
 - title: "工作的心智"
   description: "探讨工作哲学、效率系统与职业发展。"
   link: "#"
   emoji: "⚒️"
+  category: "个人专著"
 
 - title: "阅读的心智"
   description: "关于阅读方法、知识管理与信息素养。"
   link: "#"
   emoji: "📚"
+  category: "个人专著"
 
 - title: "聪明的阅读者"
   description: "系统介绍阅读的科学方法与认知技巧。"
   link: "#"
   emoji: "📖"
+  category: "个人专著"
 
 - title: "人生模式"
   description: "识别并优化人生的核心模式，实现持续成长。"
   link: "#"
   emoji: "🧩"
+  category: "个人专著"
