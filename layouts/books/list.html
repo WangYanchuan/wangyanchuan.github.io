@@ -1,6 +1,6 @@
 {{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
 {{ define "main" }}
-<section class="pt-12 pb-10 md:pt-16 md:pb-12">
+<section style="padding:3rem 0 2.5rem">
   <div class="container" style="max-width:64rem">
     <h1 class="page-header-title">{{ .Title }}</h1>
     {{ with .Content }}<p class="page-header-desc">{{ . | plainify }}</p>{{ end }}
@@ -9,22 +9,22 @@
 
 {{ $books := hugo.Data.books | default slice }}
 {{ if $books }}
-<section class="pb-16">
+<section style="padding-bottom:4rem">
   <div class="container" style="max-width:64rem">
-    <div class="flex items-center justify-between mb-10">
-      <h2 class="text-lg font-medium" style="color:var(--foreground)">个人专著</h2>
-      <span class="text-sm" style="color:var(--fg-light)">{{ len $books }} 本</span>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem">
+      <h2 style="font-size:1.125rem;font-weight:500;color:var(--fg)">个人专著</h2>
+      <span style="font-size:0.875rem;color:var(--fg-muted)">{{ len $books }} 本</span>
     </div>
-    <div class="space-y-12">
+    <div>
     {{ range $books }}
-      <article class="group">
-        <a class="flex gap-6 md:gap-8" href="{{ .link | default "#" }}">
-          <div class="w-32 md:w-40 lg:w-48 flex-shrink-0 aspect-[3/4] relative rounded-sm flex items-center justify-center" style="background:var(--bg-muted);font-size:4rem;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+      <article style="margin-bottom:3rem">
+        <a style="display:flex;gap:1.5rem;text-decoration:none;color:inherit" href="{{ .link | default "#" }}">
+          <div style="width:8rem;flex-shrink:0;aspect-ratio:3/4;border-radius:calc(0.5rem - 4px);overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--bg-muted);font-size:4rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);transition:box-shadow 0.3s">
             <span>{{ .emoji | default "📖" }}</span>
           </div>
-          <div class="flex-1 min-w-0">
-            <h3 class="text-xl font-medium" style="color:var(--foreground)">{{ .title }}</h3>
-            <p class="text-sm mt-3" style="color:var(--fg-muted);line-height:1.7">{{ .description }}</p>
+          <div style="flex:1;min-width:0">
+            <h3 style="font-size:1.25rem;font-weight:500;color:var(--fg);transition:color 0.2s;margin:0 0 0.5rem">{{ .title }}</h3>
+            <p style="font-size:0.875rem;color:var(--fg-muted);line-height:1.75;margin:0">{{ .description }}</p>
           </div>
         </a>
       </article>
@@ -33,7 +33,7 @@
   </div>
 </section>
 {{ else }}
-<section class="pb-16">
+<section style="padding-bottom:4rem">
   <div class="container" style="max-width:64rem">
     <p class="books-empty">暂无图书作品</p>
   </div>
