@@ -69,11 +69,14 @@
     </div>
     {{ $books := hugo.Data.books | default slice }}
     {{ if $books }}
-    <div class="books-grid">
+    <div class="flex flex-wrap gap-6">
       {{ range $books }}
-      <a class="book-card" href="{{ .link | default "#" }}">
-        <div class="book-cover">{{ .emoji | default "📖" }}</div>
-        <h3 class="book-title">{{ .title }}</h3>
+      <a class="flex items-center gap-4 p-4 rounded-sm flex-1 min-w-[200px]" style="background:var(--bg-muted);text-decoration:none" href="{{ .link | default "#" }}">
+        <span style="font-size:2.5rem;flex-shrink:0">{{ .emoji | default "📖" }}</span>
+        <div>
+          <h3 style="font-size:1rem;font-weight:500;color:var(--foreground);margin:0">{{ .title }}</h3>
+          <p style="font-size:0.8125rem;color:var(--fg-muted);margin:0.25rem 0 0 0;line-height:1.5">{{ .description }}</p>
+        </div>
       </a>
       {{ end }}
     </div>

@@ -11,12 +11,23 @@
 {{ if $books }}
 <section class="pb-16">
   <div class="container" style="max-width:64rem">
-    <div class="books-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="flex items-center justify-between mb-10">
+      <h2 class="text-lg font-medium" style="color:var(--foreground)">个人专著</h2>
+      <span class="text-sm" style="color:var(--fg-light)">{{ len $books }} 本</span>
+    </div>
+    <div class="space-y-12">
     {{ range $books }}
-      <a class="book-card" href="{{ .link | default "#" }}">
-        <div class="book-cover" style="font-size:3rem">{{ .emoji | default "📖" }}</div>
-        <h3 class="book-title">{{ .title }}</h3>
-      </a>
+      <article class="group">
+        <a class="flex gap-6 md:gap-8" href="{{ .link | default "#" }}">
+          <div class="w-32 md:w-40 lg:w-48 flex-shrink-0 aspect-[3/4] relative rounded-sm flex items-center justify-center" style="background:var(--bg-muted);font-size:4rem;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+            <span>{{ .emoji | default "📖" }}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-xl font-medium" style="color:var(--foreground)">{{ .title }}</h3>
+            <p class="text-sm mt-3" style="color:var(--fg-muted);line-height:1.7">{{ .description }}</p>
+          </div>
+        </a>
+      </article>
     {{ end }}
     </div>
   </div>
