@@ -4,3 +4,4 @@ resources/
 .DS_Store
 CLAUDE.md
 tests/
+archetypes/
