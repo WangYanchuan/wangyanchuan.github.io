@@ -1,0 +1,116 @@
+{{ define "main" }}
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:60%;height:60%">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="hero-text">
+      <h1>{{ .Site.Title }}</h1>
+      <p>{{ .Site.Params.description }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+  <div class="container">
+    <blockquote>
+      <span class="quote-mark">"</span>
+      <p>人生如逆旅，我亦是行人。<br class="hidden md:block"/><span class="quote-sub">在探索人类心智之迷的路上，愿与你同行。</span></p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- Recent articles -->
+{{ $posts := where .Site.RegularPages "Section" "essays" }}
+{{ if $posts }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+        近期文章
+      </h2>
+      <a class="section-more" href="{{ "/essays/" | relLangURL }}">
+        全部文章
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div>
+    {{ range $posts }}
+      <a class="article-item" href="{{ .RelPermalink }}">
+        <time class="article-date">{{ .Date.Format "2006-01-02" }}</time>
+        <div class="flex-1 min-w-0">
+          <h3 class="article-title">{{ .Title }}</h3>
+        </div>
+      </a>
+    {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- 图书作品 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        图书作品
+      </h2>
+    </div>
+    {{ $books := .Site.Data.books | default slice }}
+    {{ if $books }}
+    <div class="books-grid">
+      {{ range $books }}
+      <a class="book-card" href="{{ .link | default "#" }}">
+        <div class="book-cover">{{ .emoji | default "📖" }}</div>
+        <h3 class="book-title">{{ .title }}</h3>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="books-empty">暂无图书作品</p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Cards -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cards-grid">
+      <a class="card" href="{{ "/about/" | relLangURL }}">
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <div>
+          <h3>关于我</h3>
+          <p>我的故事、经历与正在做的事</p>
+        </div>
+      </a>
+      <a class="card" href="{{ "/books/" | relLangURL }}">
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        </span>
+        <div>
+          <h3>图书作品</h3>
+          <p>我写的书、译的书、编的书</p>
+        </div>
+      </a>
+      <a class="card" href="{{ "/essays/" | relLangURL }}">
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+        </span>
+        <div>
+          <h3>随笔文章</h3>
+          <p>关于认知、心智与人生发展</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}

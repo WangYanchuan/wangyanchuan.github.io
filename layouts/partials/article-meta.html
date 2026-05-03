@@ -1,0 +1,11 @@
+<time>{{ .Date.Format "2006-01-02" }}</time>
+<span class="reading-time">{{ .ReadingTime }} 分钟阅读</span>
+{{ with .Params.tags }}
+<div class="tags">
+  {{ range . }}
+  {{ with $.Site.GetPage (printf "/tags/%s" (urlize .)) }}
+  <a href="{{ .RelPermalink }}"><span class="tag">{{ .Title }}</span></a>
+  {{ end }}
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,12 @@
+<nav class="site-nav">
+  <a class="site-title" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+  <button class="nav-toggle" aria-label="菜单">☰</button>
+  <ul class="nav-menu">
+    {{ $current := .RelPermalink }}
+    {{ range slice (dict "url" "/" "name" "首页") (dict "url" "/archive/" "name" "归档") (dict "url" "/tags/" "name" "标签") (dict "url" "/about/" "name" "关于") }}
+    <li>
+      <a href="{{ .url | relLangURL }}"{{ if eq $current .url }} aria-current="page"{{ end }}>{{ .name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>

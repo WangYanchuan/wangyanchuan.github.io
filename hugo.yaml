@@ -1,0 +1,24 @@
+baseURL: 'https://wangyanchuan.github.io/'
+locale: 'zh-CN'
+defaultContentLanguage: 'zh'
+title: '杨闫川的博客'
+theme: ''
+publishDir: 'public'
+
+params:
+  description: '关于 AI 大模型训练、深度学习和认知科学的个人博客'
+  author: '杨闫川'
+
+markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+
+outputFormats:
+  RSS:
+    mediatype: application/rss+xml
+    baseName: index
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
