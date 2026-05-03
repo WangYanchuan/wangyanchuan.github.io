@@ -4,7 +4,6 @@ backend:
   name: github
   branch: main
   repo: WangYanchuan/wangyanchuan.github.io
-  base_url: https://api.github.com
 
 # 启用本地预览
 local_backend: true
