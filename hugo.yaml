@@ -2,7 +2,6 @@ baseURL: 'https://wangyanchuan.github.io/'
 locale: 'zh-CN'
 defaultContentLanguage: 'zh'
 title: '杨闫川的博客'
-theme: ''
 publishDir: 'public'
 
 params:
