@@ -5,7 +5,7 @@ title: '笔记本'
 publishDir: 'public'
 
 params:
-  description: '禅心'
+  description: '关于 AI 大模型训练、深度学习和认知科学的个人博客'
   author: '杨闫川'
 
 markup:
