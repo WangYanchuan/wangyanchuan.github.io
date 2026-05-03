@@ -6,7 +6,7 @@ publishDir: 'public'
 
 params:
   description: '关于 AI 大模型训练、深度学习和认知科学的个人博客'
-  author: '杨闫川'
+  author: '焱钏'
 
 markup:
   tableOfContents:

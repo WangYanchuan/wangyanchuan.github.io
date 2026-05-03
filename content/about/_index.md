@@ -10,7 +10,7 @@ title: "关于我"
 
 - **GitHub**: [github.com/yanchuan](https://github.com/yanchuan)
 - **Twitter/X**: [@yanchuan](https://twitter.com/yanchuan)
-- **知乎**: [杨闫川](https://www.zhihu.com/people/yanchuan)
+- **知乎**: [焱钏](https://www.zhihu.com/people/yanchuan)
 
 ## 关于本站
 
