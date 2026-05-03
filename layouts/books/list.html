@@ -1,0 +1,31 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<section class="pt-12 pb-10 md:pt-16 md:pb-12">
+  <div class="container" style="max-width:64rem">
+    <h1 class="page-header-title">{{ .Title }}</h1>
+    {{ with .Content }}<p class="page-header-desc">{{ . | plainify }}</p>{{ end }}
+  </div>
+</section>
+
+{{ $books := hugo.Data.books | default slice }}
+{{ if $books }}
+<section class="pb-16">
+  <div class="container" style="max-width:64rem">
+    <div class="books-grid" style="grid-template-columns:repeat(3,1fr)">
+    {{ range $books }}
+      <a class="book-card" href="{{ .link | default "#" }}">
+        <div class="book-cover" style="font-size:3rem">{{ .emoji | default "📖" }}</div>
+        <h3 class="book-title">{{ .title }}</h3>
+      </a>
+    {{ end }}
+    </div>
+  </div>
+</section>
+{{ else }}
+<section class="pb-16">
+  <div class="container" style="max-width:64rem">
+    <p class="books-empty">暂无图书作品</p>
+  </div>
+</section>
+{{ end }}
+{{ end }}

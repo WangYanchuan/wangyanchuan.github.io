@@ -72,7 +72,6 @@ collections:
         required: true
         minimal: false
         buttons:
-          - "heading"
           - "bold"
           - "italic"
           - "code"
@@ -80,8 +79,6 @@ collections:
           - "quote"
           - "bulleted-list"
           - "numbered-list"
-        editor_components:
-          - "image"
       - label: "URL 标识"
         name: "slug"
         widget: "string"
