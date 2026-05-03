@@ -7,7 +7,7 @@ echo "=== Test: Homepage shows article list ==="
 
 hugo > /dev/null 2>&1
 
-# 阳志平风格首页使用 article-item 类
+# 首页使用 article-item 类
 post_count=$(grep -c 'class="article-item"' public/index.html || true)
 echo "  首页文章数: $post_count"
 if [ "$post_count" -ge 3 ]; then

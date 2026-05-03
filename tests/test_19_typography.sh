@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 验证中文排版风格（阳志平风格）
+# 验证中文排版风格
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
