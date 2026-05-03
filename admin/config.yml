@@ -1,0 +1,146 @@
+# Decap CMS 配置
+# 后端使用 GitHub API
+backend:
+  name: github
+  branch: main
+  repo: WangYanchuan/wangyanchuan.github.io
+  base_url: https://api.github.com
+
+# 启用本地预览
+local_backend: true
+
+# 媒体文件（图片等）存储路径
+media_folder: "static/images"
+public_folder: "/images"
+
+# 语言设置
+locale: 'zh_Hans'
+
+# 内容类型定义
+collections:
+  - name: "posts"
+    label: "文章"
+    label_singular: "文章"
+    folder: "Blog/content/essays"
+    create: true
+    delete: true
+    path: "{{slug}}/index"
+    media_folder: "{{media_folder}}/{{slug}}"
+    public_folder: "{{public_folder}}/{{slug}}"
+    preview_path: "posts/{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{fields.slug}}"
+    editor:
+      preview: true
+    summary: "{{title}} — {{date}}"
+    view_groups:
+      - label: "年份"
+        field: date
+        pattern: \d{4}
+    view_filters:
+      - label: "有标签"
+        field: tags
+        pattern: .+
+    fields:
+      - label: "标题"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "发布日期"
+        name: "date"
+        widget: "datetime"
+        required: true
+        format: "yyyy-MM-dd'T'HH:mm:ssZ"
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        summary: "{{fields.tag}}"
+        field:
+          label: "标签名"
+          name: "tag"
+          widget: "string"
+          pattern: ['^[a-zA-Z0-9一-龥_-]+$', '标签只能包含中文、字母、数字、下划线和连字符']
+      - label: "摘要"
+        name: "description"
+        widget: "text"
+        required: false
+      - label: "正文"
+        name: "body"
+        widget: "markdown"
+        required: true
+        minimal: false
+        buttons:
+          - "heading"
+          - "bold"
+          - "italic"
+          - "code"
+          - "link"
+          - "quote"
+          - "bulleted-list"
+          - "numbered-list"
+        editor_components:
+          - "image"
+      - label: "URL 标识"
+        name: "slug"
+        widget: "string"
+        hint: "用于 URL 的唯一标识符（英文或拼音），留空自动生成"
+        required: false
+        pattern: ['^[a-z0-9-]+$', '只能包含小写字母、数字和连字符']
+
+  - name: "books"
+    label: "图书作品"
+    label_singular: "图书"
+    folder: "Blog/data"
+    create: true
+    delete: true
+    extension: "yaml"
+    format: "yaml"
+    slug: "books"
+    editor:
+      preview: false
+    files:
+      - label: "图书列表"
+        name: "books"
+        file: "Blog/data/books.yaml"
+        fields:
+          - label: "图书作品"
+            name: "books"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "书名"
+                name: "title"
+                widget: "string"
+                required: true
+              - label: "描述"
+                name: "description"
+                widget: "text"
+                required: true
+              - label: "链接"
+                name: "link"
+                widget: "string"
+                required: false
+              - label: "图标"
+                name: "emoji"
+                widget: "string"
+                required: false
+                hint: "如 📖、🤖、🧠 等 Emoji"
+
+  - name: "pages"
+    label: "页面"
+    label_singular: "页面"
+    files:
+      - label: "关于我"
+        name: "about"
+        file: "Blog/content/about/_index.md"
+        fields:
+          - label: "标题"
+            name: "title"
+            widget: "string"
+            required: true
+          - label: "正文"
+            name: "body"
+            widget: "markdown"
+            required: true
