@@ -1,7 +1,7 @@
 {{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <section style="padding:3rem 0 2.5rem">
-  <div class="container" style="max-width:64rem">
+  <div class="container">
     <h1 class="page-header-title">{{ .Title }}</h1>
     {{ with .Content }}<p class="page-header-desc">{{ . | plainify }}</p>{{ end }}
   </div>
@@ -10,21 +10,21 @@
 {{ $books := hugo.Data.books | default slice }}
 {{ if $books }}
 <section style="padding-bottom:4rem">
-  <div class="container" style="max-width:64rem">
+  <div class="container">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem">
       <h2 style="font-size:1.125rem;font-weight:500;color:var(--fg)">个人专著</h2>
       <span style="font-size:0.875rem;color:var(--fg-muted)">{{ len $books }} 本</span>
     </div>
     <div>
     {{ range $books }}
-      <article style="margin-bottom:3rem">
-        <a style="display:flex;gap:1.5rem;text-decoration:none;color:inherit" href="{{ .link | default "#" }}">
-          <div style="width:8rem;flex-shrink:0;aspect-ratio:3/4;border-radius:calc(0.5rem - 4px);overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--bg-muted);font-size:4rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);transition:box-shadow 0.3s">
+      <article class="book-detail-article">
+        <a class="book-detail-link" href="{{ .link | default "#" }}">
+          <div class="book-detail-cover">
             <span>{{ .emoji | default "📖" }}</span>
           </div>
           <div style="flex:1;min-width:0">
-            <h3 style="font-size:1.25rem;font-weight:500;color:var(--fg);transition:color 0.2s;margin:0 0 0.5rem">{{ .title }}</h3>
-            <p style="font-size:0.875rem;color:var(--fg-muted);line-height:1.75;margin:0">{{ .description }}</p>
+            <h3 class="book-detail-title">{{ .title }}</h3>
+            <p class="book-detail-desc">{{ .description }}</p>
           </div>
         </a>
       </article>
@@ -34,7 +34,7 @@
 </section>
 {{ else }}
 <section style="padding-bottom:4rem">
-  <div class="container" style="max-width:64rem">
+  <div class="container">
     <p class="books-empty">暂无图书作品</p>
   </div>
 </section>
