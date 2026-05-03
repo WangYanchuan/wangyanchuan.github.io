@@ -15,7 +15,7 @@ else
 fi
 
 # 检查关键 action 引用
-for action in "actions/checkout" "peaceiris/actions-hugo" "peaceiris/actions-gh-pages"; do
+for action in "actions/checkout" "peaceiris/actions-hugo" "actions/upload-pages-artifact" "actions/deploy-pages"; do
   if grep -q "$action" "$wf"; then
     echo "  OK: 引用 $action"
   else
@@ -29,14 +29,6 @@ if grep -q "hugo.*--minify\|hugo.*minify" "$wf"; then
   echo "  OK: 使用 hugo --minify"
 else
   echo "  FAIL: 未使用 hugo --minify"
-  exit 1
-fi
-
-# 检查 gh-pages 分支部署
-if grep -q "gh-pages\|ghp_branc\|publish_branch" "$wf" 2>/dev/null; then
-  echo "  OK: 部署到 gh-pages 分支"
-else
-  echo "  FAIL: 未配置 gh-pages 分支"
   exit 1
 fi
 
