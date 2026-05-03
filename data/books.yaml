@@ -1,3 +1,4 @@
+# ===== 个人专著 =====
 - title: "成长的心智"
   description: "关于认知科学、心智模型与个人成长的思考。"
   link: "#"
@@ -27,3 +28,77 @@
   link: "#"
   emoji: "🧩"
   category: "个人专著"
+
+# ===== 主编 =====
+- title: "百面大模型"
+  description: "包梦蛟、刘如日、朱俊达 著 · 系统梳理大模型面试知识与核心原理。"
+  link: "https://book.douban.com/subject/37331025/"
+  emoji: "🎯"
+  category: "主编"
+
+- title: "大模型应用开发 动手做AI Agent"
+  description: "黄佳 著 · 从零构建 AI Agent 应用的实战指南。"
+  link: "https://book.douban.com/subject/36884058/"
+  emoji: "🤖"
+  category: "主编"
+
+- title: "GPT图解：大模型是怎样构建的"
+  description: "黄佳 著 · 图解 GPT 架构与大模型构建全过程。"
+  link: "https://book.douban.com/subject/36668702/"
+  emoji: "📊"
+  category: "主编"
+
+- title: "解构大语言模型"
+  description: "唐亘 著 · 从线性回归到通用人工智能的完整路径。"
+  link: "https://book.douban.com/subject/36873291/"
+  emoji: "🧠"
+  category: "主编"
+
+- title: "大模型时代"
+  description: "龙志勇、黄雯 著 · ChatGPT 开启通用人工智能浪潮。"
+  link: "https://book.douban.com/subject/36397929/"
+  emoji: "🚀"
+  category: "主编"
+
+- title: "大语言模型"
+  description: "赵鑫 著 · 高等教育出版社，系统讲解大语言模型技术。"
+  link: "https://book.douban.com/subject/37178518/"
+  emoji: "📝"
+  category: "主编"
+
+# ===== 翻译、审校 =====
+- title: "从零构建大模型"
+  description: "[美]塞巴斯蒂安·拉施卡 著 · 覃立波 译 · 大模型入门经典。"
+  link: "https://book.douban.com/subject/37305124/"
+  emoji: "🔧"
+  category: "翻译"
+
+- title: "图解大模型"
+  description: "[沙特]杰伊·阿拉马尔 著 · 李博杰 译 · 直观理解 Transformer 架构。"
+  link: "https://book.douban.com/subject/37339504/"
+  emoji: "📐"
+  category: "翻译"
+
+- title: "大模型技术30讲"
+  description: "[美]塞巴斯蒂安·拉施卡 著 · 叶文滔 译 · 30 讲掌握大模型核心技术。"
+  link: "https://book.douban.com/subject/37258887/"
+  emoji: "💡"
+  category: "翻译"
+
+- title: "动手构建大模型"
+  description: "[加]路易斯-弗朗索瓦·布沙尔 著 · 孟二利 译 · 从零开始训练大模型。"
+  link: "https://book.douban.com/subject/37841387/"
+  emoji: "🛠️"
+  category: "翻译"
+
+- title: "大模型算法：强化学习、微调与对齐"
+  description: "余昌叶 著 · 深入 RLHF、微调与对齐技术。"
+  link: "https://book.douban.com/subject/37331056/"
+  emoji: "⚡"
+  category: "翻译"
+
+- title: "揭秘大模型：从原理到实战"
+  description: "文亮 著 · 从原理到部署的全流程实战手册。"
+  link: "https://book.douban.com/subject/37159677/"
+  emoji: "🔍"
+  category: "翻译"

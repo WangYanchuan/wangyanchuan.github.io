@@ -123,6 +123,12 @@ collections:
                 widget: "string"
                 required: false
                 hint: "如 📖、🤖、🧠 等 Emoji"
+              - label: "分类"
+                name: "category"
+                widget: "select"
+                required: true
+                options: ["个人专著", "主编", "翻译"]
+                default: "个人专著"
 
   - name: "pages"
     label: "页面"
